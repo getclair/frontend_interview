@@ -13,35 +13,10 @@ Time: O(m*a^floor(a,m))
 Space: O(a) - Each actor gets a spot in the mapping with a constant size value
 */
 function actorEarning(movies) {
-  const actorMapping = {};
-  for (let movie of movies) {
-    let boxOffice = movie.BoxOffice;
-    if (boxOffice && boxOffice == "N/A") {
-      continue;
-    }
-    boxOffice = boxOffice.replaceAll(",", "").replace("$", "");
-    const actors = movie.Actors;
-    for (let actor of actors) {
-      const actorsMovieEarning = Math.floor(Number(boxOffice)/actors.length)
-      if (Object.keys(actorMapping).includes(actor)) {
-        actorMapping[actor] += actorsMovieEarning;
-      } else {
-        actorMapping[actor] = actorsMovieEarning;
-      }
-    }
-  }
-  let highestEarnAmount = Number.NEGATIVE_INFINITY;
-  let highestEarner = "";
-  for (let [actor, totalEarn] of Object.entries(actorMapping)) {
-    if (totalEarn > highestEarnAmount) {
-      highestEarnAmount = totalEarn;
-      highestEarner = actor;
-    }
-  }
-  return [highestEarner, "$" + highestEarnAmount.toLocaleString()];
+  
 }
 
-// [ 'Daisy Ridley', '$415,515,036' ]
+
 console.log(actorEarning(movieListOne));
 
 /**
@@ -49,16 +24,7 @@ console.log(actorEarning(movieListOne));
  * What's the space and time complexity of your implementation?
  * */
 function moviesBoxOffice(selectedMovies) {
-  // O(n) time where n is the number of movies
-  const moviesWithBoxOffice = selectedMovies.filter(
-    (movie) => movie.hasOwnProperty("BoxOffice") && movie.BoxOffice !== "N/A"
-  );
-  // Transform each movie object into an array of Number parsed box office earnings.
-  // O(n*m) time. We do a replace on each movie's box office which is O(m), where m is the length of the longest BoxOffice string/number
-  return moviesWithBoxOffice.map((movie) =>
-    Number(movie.BoxOffice.replace(/[^0-9\.-]+/g, ""))
-  );
+
 }
 
-// Should be [ 936662225, 309306177, 768946, 1 ]
 console.log(moviesBoxOffice(movieListOne));
