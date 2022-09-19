@@ -1,0 +1,170 @@
+const movieListOne = [
+  {
+    Actors: ["Daisy Ridley", "John Boyega", "Oscar Isaac"],
+    BoxOffice: "$936,662,225",
+    Country: "United States",
+    Director: "J.J. Abrams",
+    Genre: "Action, Adventure, Sci-Fi",
+    Language: "English",
+    Metascore: "80",
+    Plot: "As a new threat to the galaxy rises, Rey, a desert scavenger, and Finn, an ex-stormtrooper, must join Han Solo and Chewbacca to search for the one hope of restoring peace.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg",
+    Production: "N/A",
+    Rated: "PG-13",
+    Ratings: [
+      {
+        Source: "Internet Movie Database",
+        Value: "7.8/10",
+      },
+      {
+        Source: "Rotten Tomatoes",
+        Value: "93%",
+      },
+      {
+        Source: "Metacritic",
+        Value: "80/100",
+      },
+    ],
+    Response: "True",
+    Runtime: "138 min",
+    Title: "Star Wars: Episode VII - The Force Awakens",
+    imdbID: "tt2488496",
+    imdbRating: "7.8",
+    imdbVotes: "901,554",
+  },
+  {
+    Actors: ["Daisy Ridley", "John Boyega", "Oscar Isaac"],
+    BoxOffice: "N/A",
+    Country: "United States",
+    Director: "Irvin Kershner",
+    Genre: "Action, Adventure, Fantasy",
+    Language: "English",
+    Metascore: "82",
+    Plot: "After the Rebels are brutally overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his friends are pursued across the galaxy by Darth Vader and bounty hunter Boba Fett.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    Production: "N/A",
+    Rated: "PG",
+    Ratings: [
+      {
+        Source: "Internet Movie Database",
+        Value: "8.7/10",
+      },
+      {
+        Source: "Rotten Tomatoes",
+        Value: "94%",
+      },
+      {
+        Source: "Metacritic",
+        Value: "82/100",
+      },
+    ],
+    Response: "True",
+    Runtime: "124 min",
+    Title: "Star Wars: Episode V - The Empire Strikes Back",
+    imdbID: "tt0080684",
+    imdbRating: "8.7",
+    imdbVotes: "1,235,361",
+  },
+  {
+    Actors: ["Daisy Ridley", "John Boyega", "Oscar Isaac"],
+    BoxOffice: "$309,306,177",
+    Country: "United States",
+    Director: "Richard Marquand",
+    Genre: "Action, Adventure, Fantasy",
+    Language: "English",
+    Metascore: "58",
+    Plot: "After a daring mission to rescue Han Solo from Jabba the Hutt, the Rebels dispatch to Endor to destroy the second Death Star. Meanwhile, Luke struggles to help Darth Vader back from the dark side without falling into the Emperor's tr",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+    Production: "N/A",
+    Rated: "PG",
+    Ratings: [
+      {
+        Source: "Internet Movie Database",
+        Value: "8.3/10",
+      },
+      {
+        Source: "Rotten Tomatoes",
+        Value: "82%",
+      },
+      {
+        Source: "Metacritic",
+        Value: "58/100",
+      },
+    ],
+    Response: "True",
+    Runtime: "131 min",
+    Title: "Star Wars: Episode VI - Return of the Jedi",
+    imdbID: "tt0086190",
+    imdbRating: "8.3",
+    imdbVotes: "1,010,130",
+  },
+  {
+    Actors: ["Daisy Ridley", "John Boyega", "Oscar Isaac", "Sally Field"],
+    BoxOffice: "$768,946",
+    Country: "United States",
+    Director: "Peter Landesman",
+    Genre: "Biography, Drama, History",
+    Language: "English",
+    Metascore: "49",
+    Plot: 'The story of Mark Felt, who under the name "Deep Throat" helped journalists Bob Woodward and Carl Bernstein uncover the Watergate scandal in 1972.',
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMjQzMDEwMjMyNF5BMl5BanBnXkFtZTgwNjA1NTA1MzI@._V1_SX300.jpg",
+    Production: "N/A",
+    Rated: "PG-13",
+    Ratings: [
+      {
+        Source: "Internet Movie Database",
+        Value: "6.4/10",
+      },
+      {
+        Source: "Metacritic",
+        Value: "49/100",
+      },
+    ],
+    Response: "True",
+    Runtime: "103 min",
+    Title: "Mark Felt: The Man Who Brought Down the White House",
+    imdbID: "tt5175450",
+    imdbRating: "6.4",
+    imdbVotes: "13,098",
+  },
+  {
+    Actors: ["Robert Downey", "John Boyega", "Oscar Isaac"],
+    BoxOffice: "$1",
+    Country: "United States",
+    Director: "Michael Showalter",
+    Genre: "Comedy, Drama, Romance",
+    Language: "English",
+    Metascore: "63",
+    Plot: "A self-help seminar inspires a sixty-something woman to romantically pursue her younger co-worker.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMTg0NTM3MTI1MF5BMl5BanBnXkFtZTgwMTAzNTAzNzE@._V1_SX300.jpg",
+    Production: "N/A",
+    Rated: "R",
+    Ratings: [
+      {
+        Source: "Internet Movie Database",
+        Value: "6.6/10",
+      },
+      {
+        Source: "Rotten Tomatoes",
+        Value: "85%",
+      },
+      {
+        Source: "Metacritic",
+        Value: "63/100",
+      },
+    ],
+    Response: "True",
+    Runtime: "90 min",
+    Title: "Hello, My Name Is Doris",
+    imdbID: "tt3766394",
+    imdbRating: "6.6",
+    imdbVotes: "20,319",
+  },
+];
+
+module.exports = movieListOne
