@@ -13,9 +13,40 @@ Time: O(m*a^floor(a,m))
 Space: O(a) - Each actor gets a spot in the mapping with a constant size value
 */
 function actorEarning(movies) {
-  
-}
+  const actorMap = {};
+  let max = -Infinity;
+  let highestEarner = "";
 
+  for (let movie of movies) {
+    const { BoxOffice, Actors } = movie || {};
+    if (!BoxOffice || BoxOffice == "N/A") continue;
+    const len = movie?.Actors?.length;
+    const earnings = parseInt(BoxOffice.replaceAll(",", "").replace("$", ""));
+    const earningsPerActor = earnings && len ? earnings / len : 0;
+
+    for (let i = 0; i < len; i++) {
+      const actor = Actors[i];
+      if (actorMap[actor]) {
+        actorMap[actor] += earningsPerActor;
+      } else {
+        actorMap[actor] = earningsPerActor;
+      }
+    }
+  }
+
+  const currencyFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  for (let actor in actorMap) {
+    if (actorMap[actor] >= max) {
+      max = actorMap[actor];
+      highestEarner = `${actor} - ${currencyFormatter.format(actorMap[actor])}`;
+    }
+  }
+  return highestEarner;
+}
 
 console.log(actorEarning(movieListOne));
 
@@ -24,7 +55,13 @@ console.log(actorEarning(movieListOne));
  * What's the space and time complexity of your implementation?
  * */
 function moviesBoxOffice(selectedMovies) {
-
+  return selectedMovies?.map((movie) => {
+    if (movie?.BoxOffice && movie?.BoxOffice !== "N/A") {
+      return parseInt(movie?.BoxOffice.replace(/[^0-9\.-]+/g, ""));
+    } else {
+      return 0;
+    }
+  });
 }
 
 console.log(moviesBoxOffice(movieListOne));
