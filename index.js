@@ -13,35 +13,42 @@ Time: O(m*a^floor(a,m))
 Space: O(a) - Each actor gets a spot in the mapping with a constant size value
 */
 function actorEarning(movies) {
-  const actorMapping = {};
+  const actorMap = {};
+  let max = -Infinity;
+  let highestEarner = "";
+
   for (let movie of movies) {
-    let boxOffice = movie.BoxOffice;
-    if (boxOffice && boxOffice == "N/A") {
-      continue;
-    }
-    boxOffice = boxOffice.replaceAll(",", "").replace("$", "");
-    const actors = movie.Actors;
-    for (let actor of actors) {
-      const actorsMovieEarning = Math.floor(Number(boxOffice)/actors.length)
-      if (Object.keys(actorMapping).includes(actor)) {
-        actorMapping[actor] += actorsMovieEarning;
+    const { BoxOffice, Actors } = movie || {};
+    if (!BoxOffice || BoxOffice == "N/A") continue;
+    const len = movie?.Actors?.length;
+    const earnings = parseInt(BoxOffice.replaceAll(",", "").replace("$", ""));
+    const earningsPerActor = earnings && len ? earnings / len : 0;
+
+    for (let i = 0; i < len; i++) {
+      const actor = Actors[i];
+      if (actorMap[actor]) {
+        actorMap[actor] += earningsPerActor;
       } else {
-        actorMapping[actor] = actorsMovieEarning;
+        actorMap[actor] = earningsPerActor;
       }
     }
   }
-  let highestEarnAmount = Number.NEGATIVE_INFINITY;
-  let highestEarner = "";
-  for (let [actor, totalEarn] of Object.entries(actorMapping)) {
-    if (totalEarn > highestEarnAmount) {
-      highestEarnAmount = totalEarn;
-      highestEarner = actor;
+
+  const currencyFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  for (let actor in actorMap) {
+    if (actorMap[actor] >= max) {
+      max = actorMap[actor];
+      highestEarner = `${actor} - ${currencyFormatter.format(actorMap[actor])}`;
     }
   }
-  return [highestEarner, "$" + highestEarnAmount.toLocaleString()];
+  return highestEarner;
 }
 
-// [ 'Daisy Ridley', '$415,515,036' ]
+// Oscar Isaac - $415,515,037.50
 console.log(actorEarning(movieListOne));
 
 /**
