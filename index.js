@@ -48,6 +48,7 @@ function actorEarning(movies) {
   return highestEarner;
 }
 
+// Oscar Isaac - $415,515,037.50
 console.log(actorEarning(movieListOne));
 
 /**
@@ -64,4 +65,5 @@ function moviesBoxOffice(selectedMovies) {
   });
 }
 
+// [ 936662225, 309306177, 768946, 1 ]
 console.log(moviesBoxOffice(movieListOne));
