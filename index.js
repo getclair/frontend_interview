@@ -56,14 +56,16 @@ console.log(actorEarning(movieListOne));
  * What's the space and time complexity of your implementation?
  * */
 function moviesBoxOffice(selectedMovies) {
-  return selectedMovies?.map((movie) => {
-    if (movie?.BoxOffice && movie?.BoxOffice !== "N/A") {
-      return parseInt(movie?.BoxOffice.replace(/[^0-9\.-]+/g, ""));
-    } else {
-      return 0;
-    }
-  });
+  // O(n) time where n is the number of movies
+  const moviesWithBoxOffice = selectedMovies.filter(
+    (movie) => movie.hasOwnProperty("BoxOffice") && movie.BoxOffice !== "N/A"
+  );
+  // Transform each movie object into an array of Number parsed box office earnings.
+  // O(n*m) time. We do a replace on each movie's box office which is O(m), where m is the length of the longest BoxOffice string/number
+  return moviesWithBoxOffice.map((movie) =>
+    Number(movie.BoxOffice.replace(/[^0-9\.-]+/g, ""))
+  );
 }
 
-// [ 936662225, 309306177, 768946, 1 ]
+// Should be [ 936662225, 309306177, 768946, 1 ]
 console.log(moviesBoxOffice(movieListOne));
