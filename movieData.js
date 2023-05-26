@@ -132,7 +132,7 @@ const movieListOne = [
     imdbVotes: "13,098",
   },
   {
-    Actors: ["Robert Downey", "John Boyega", "Oscar Isaac"],
+    Actors: ["Robert Downey", "Oscar Isaac"],
     BoxOffice: "$1",
     Country: "United States",
     Director: "Michael Showalter",
@@ -165,6 +165,6 @@ const movieListOne = [
     imdbRating: "6.6",
     imdbVotes: "20,319",
   },
-];
+]
 
 module.exports = movieListOne
